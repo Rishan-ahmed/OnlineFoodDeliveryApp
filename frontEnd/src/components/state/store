@@ -1,0 +1,11 @@
+import { applyMiddleware, combineReducers, legacy_createStore } from "redux";
+import { authReducers } from "./authentication/Reducers";
+import {thunk}  from "redux-thunk";
+import { RestaurantReducers } from "./Restaurent/Reducers";
+
+const rootReducer = combineReducers({
+    auth: authReducers,
+    Restuarant: RestaurantReducers
+})
+
+export const store = legacy_createStore(rootReducer, applyMiddleware(thunk))
